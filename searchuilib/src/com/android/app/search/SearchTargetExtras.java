@@ -19,8 +19,8 @@ package com.android.app.search;
 import static com.android.app.search.LayoutType.TALL_CARD_WITH_IMAGE_NO_ICON;
 
 import android.app.blob.BlobHandle;
+import android.app.search.SearchAction;
 import android.app.search.SearchTarget;
-import android.os.Bundle;
 import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
@@ -42,10 +42,13 @@ public class SearchTargetExtras {
     public static final String BUNDLE_EXTRA_GROUP_DECORATE_TOGETHER = "decorate_together";
     // Used if slice title should be rendered else where outside of slice (e.g., edit text)
     public static final String BUNDLE_EXTRA_SLICE_TITLE = "slice_title";
-    // USed if slice view should be rendered using full height mode.
+    // Used if slice view should be rendered using full height mode.
     public static final String BUNDLE_EXTRA_USE_FULL_HEIGHT = "use_full_height";
     public static final String BUNDLE_EXTRA_IS_NON_TAPPABLE = "is_non_tappable";
     public static final String BUNDLE_EXTRA_TITLE_OVERWRITE = "title_overwrite";
+    // Used if subtitle view should be overridden to string that is not natively defined by the
+    // search target.
+    public static final String BUNDLE_EXTRA_SUBTITLE_OVERRIDE = "subtitle_override";
 
     // Used for logging. Returns whether spelling correction was applied.
     public static final String BUNDLE_EXTRA_IS_QUERY_CORRECTED = "is_query_corrected";
@@ -112,10 +115,19 @@ public class SearchTargetExtras {
      *  When this flag is false, thumbnails will always be cropped to a square ratio even if
      *  there aren't enough thumbnails to fill the container.
      *
-     *  Only relevant in {@link LayoutType.THUMBNAIL_CONTAINER} and {@link LayoutType.THUMBNAIL}.
+     *  Only relevant in {@link LayoutType#THUMBNAIL_CONTAINER} and {@link LayoutType#THUMBNAIL}.
      */
     public static final String BUNDLE_EXTRA_SHOULD_FILL_CONTAINER_WIDTH =
             "should_fill_container_width";
+    /**
+     *  Flag to control whether the SearchTarget's label should be hidden.
+     *  When this flag is true, label will be hidden.
+     *  When this flag is false (or omitted), {@link SearchAction#mTitle} will be shown.
+     */
+    public static final String BUNDLE_EXTRA_HIDE_LABEL =
+            "hide_label";
+    public static final String BUNDLE_EXTRA_SUGGESTION_ACTION_TEXT = "suggestion_action_text";
+    public static final String BUNDLE_EXTRA_SUGGESTION_ACTION_RPC = "suggestion_action_rpc";
     public static final String BUNDLE_EXTRA_SUPPORT_QUERY_BUILDER = "support_query_builder";
     public static final String BUNDLE_EXTRA_SUGGEST_RAW_TEXT = "suggest_raw_text";
     public static final String BUNDLE_EXTRA_SUGGEST_TRUNCATE_START = "suggest_truncate_start";
