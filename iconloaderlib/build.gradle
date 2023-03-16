@@ -1,25 +1,15 @@
 plugins {
-    id 'sysuigradleproject.android-library-conventions'
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
+    namespace "com.android.launcher3.icons"
     sourceSets {
         main {
-            java.srcDirs = ['src', 'src_full_lib']
+            java.srcDirs = ['src']
             manifest.srcFile 'AndroidManifest.xml'
             res.srcDirs = ['res']
         }
     }
-
-    lintOptions {
-        abortOnError false
-    }
-
-    tasks.withType(JavaCompile) {
-        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-    }
-}
-
-dependencies {
-    implementation "androidx.core:core"
 }

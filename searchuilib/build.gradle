@@ -3,35 +3,11 @@ plugins {
 }
 
 android {
-    compileSdk TARGET_SDK.toInteger()
-    buildToolsVersion = BUILD_TOOLS_VERSION
-
-    defaultConfig {
-        minSdkVersion TARGET_SDK.toInteger()
-        targetSdkVersion TARGET_SDK.toInteger()
-    }
-
+    namespace "com.android.app.search"
     sourceSets {
         main {
             java.srcDirs = ['src']
             manifest.srcFile 'AndroidManifest.xml'
         }
     }
-
-    lintOptions {
-        abortOnError false
-    }
-
-    tasks.withType(JavaCompile) {
-        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-}
-
-dependencies {
-    implementation "androidx.core:core:+"
 }
