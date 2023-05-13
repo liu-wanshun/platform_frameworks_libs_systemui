@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+    namespace "com.android.app.viewcapture"
     sourceSets {
         main {
             java.srcDirs = ['src']
@@ -16,8 +17,7 @@ android {
             manifest.srcFile "tests/AndroidManifest.xml"
         }
     }
-
-    lintOptions {
+    lint {
         abortOnError false
     }
     addFrameworkJar('framework-13.jar')
